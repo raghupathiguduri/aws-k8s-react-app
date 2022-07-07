@@ -41,8 +41,13 @@ pipeline {
             when {
                 expression { params.BRANCH == 'develop' }
             }
-            dockerhub = ${params.dockercreds}
-            versionNumber = ${BUILD_NUMBER}
+            if (params.dockercreds != 'null') {
+                def dockerhub = ${params.dockercreds}
+            }
+            else {
+            def dockerhub = credentials('dockerhub')
+            }
+            def versionNumber = ${BUILD_NUMBER}
             steps {
                 DockerBuild(versionNumber,dockerhub_USR,dockerhub_PSW)
             }
