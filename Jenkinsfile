@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-              deleteDir()
+              cleanWs()
               echo "Checking out....."
               checkout scm
             }
