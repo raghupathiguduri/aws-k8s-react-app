@@ -40,7 +40,10 @@ pipeline {
         stage('Docker Build') {
             when {
                 expression { params.BRANCH == 'develop' }
-            }         
+            }
+            environment {
+            dockerhub = credentials('dockerhub')
+            }
             steps {
                 DockerBuild()
             }
