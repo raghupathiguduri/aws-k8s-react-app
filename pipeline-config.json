@@ -1,7 +1,7 @@
 {
     "appName": "menu-app",
     "helmChartPath": "infra",
-    "registry": "docker.io",
+    "registry": "docker-registry.kaiburr-tools.svc.cluster.local:5000",
     "repo": "raghukanna",
     "imageName": "test",
     "version": "1.0"
