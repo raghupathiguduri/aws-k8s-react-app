@@ -43,10 +43,12 @@ pipeline {
             }
             environment {
                 dockerhub = "${params.dockercreds}"
+                dockerusername = "${dockerhub_USR}"
+                dockerpassword = "${dockerhub_PSW}"
                 versionNumber = "${BUILD_NUMBER}"
             }
             steps {
-                DockerBuild(versionNumber,dockerhub_USR,dockerhub_PSW)
+                DockerBuild(versionNumber,dockerusername,dockerpassword)
             }
         }
     }
