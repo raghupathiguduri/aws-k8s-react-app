@@ -2,7 +2,7 @@
     "appName": "menu-app",
     "helmChartPath": "infra",
     "registry": "docker-registry.kaiburr-tools.svc.cluster.local:5000",
-    "repo": "raghukanna",
+    "repo": "react-test",
     "imageName": "test",
     "version": "1.0"
 }
