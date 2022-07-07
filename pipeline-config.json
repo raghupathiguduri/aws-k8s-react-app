@@ -1,4 +1,7 @@
 {
     "appName": "menu-app",
-    "helmChartPath": "infra"
+    "helmChartPath": "infra",
+    "registry": "raghukanna",
+    "imageName": "test-app",
+    "version": "1.0"
 }
