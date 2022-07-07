@@ -49,7 +49,7 @@ pipeline {
             }
             versionNumber = ${BUILD_NUMBER}
             steps {
-                DockerBuild(versionNumber,dockerhub)
+                DockerBuild(versionNumber,dockerhub_USR,dockerhub_PSW)
             }
         }
     }
