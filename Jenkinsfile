@@ -3,7 +3,6 @@ pipeline {
     agent any
     tools {
         nodejs 'nodejs-16.12'
-        docker 'docker-tool'
     }
     stages {
         stage('Checkout') {
