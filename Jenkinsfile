@@ -41,14 +41,18 @@ pipeline {
             when {
                 expression { params.BRANCH == 'develop' }
             }
-            environment {
-                dockerhub = "${params.dockercreds}"
-                dockerusername = "${dockerhub_USR}"
-                dockerpassword = "${dockerhub_PSW}"
-                versionNumber = "${BUILD_NUMBER}"
-            }
-            steps {
-                DockerBuild(versionNumber,dockerusername,dockerpassword)
+            podTemplate {
+                node(POD_LABEL) {
+                    environment {
+                        dockerhub = "${params.dockercreds}"
+                        dockerusername = "${dockerhub_USR}"
+                        dockerpassword = "${dockerhub_PSW}"
+                        versionNumber = "${BUILD_NUMBER}"
+                    }
+                    steps {
+                        DockerBuild(versionNumber,dockerusername,dockerpassword)
+                    }
+                }
             }
         }
     }
