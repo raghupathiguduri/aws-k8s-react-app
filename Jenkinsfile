@@ -41,15 +41,15 @@ pipeline {
             when {
                 expression { params.BRANCH == 'develop' }
             }
-            steps {
-                podTemplate {
-                node(jenkins-demo-docker-agent) {
-                    environment {
+            environment {
                         dockerhub = "${params.dockercreds}"
                         dockerusername = "${dockerhub_USR}"
                         dockerpassword = "${dockerhub_PSW}"
                         versionNumber = "${BUILD_NUMBER}"
                     }
+            steps {
+                podTemplate {
+                node(jenkins-demo-docker-agent) {
                     DockerBuild(versionNumber,dockerusername,dockerpassword)
                     }
                 }
